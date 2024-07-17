@@ -60,3 +60,25 @@
 
 ## License
 <p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+
+## Screenshots
+![chrome_6PbDjF8zQR](https://github.com/user-attachments/assets/80243f08-acc3-4719-80c8-86ca25bdf414)
+
+![chrome_CAttV35ocr](https://github.com/user-attachments/assets/75d95bab-654d-4bd3-a3bc-3df5bb85b60f)
+
+![chrome_3dzlzyVwZa](https://github.com/user-attachments/assets/e2cf977f-c099-4f4a-8b87-1fe144882804)
+
+![chrome_41M8gAWTPq](https://github.com/user-attachments/assets/2839acc4-09de-485b-85d5-9d4870d302df)
+
+![chrome_JhdiRUYnQw](https://github.com/user-attachments/assets/9f4e22b7-8747-449c-8ccf-12b5e8b3c25e)
+
+![chrome_n4VEVTkdC8](https://github.com/user-attachments/assets/513ca7e3-5217-4a3d-a66c-7608706a1648)
+
+![chrome_hjwFcKhKOW](https://github.com/user-attachments/assets/77957ee4-09b2-49c9-b23d-ca5350805c84)
+
+![chrome_t6mhHTSvkz](https://github.com/user-attachments/assets/0f11b470-8d7f-45e3-9190-e1b505efac55)
+
+![chrome_JmWkVWut8H](https://github.com/user-attachments/assets/2e04964f-96c8-4c2c-8ee0-4896817b1767)
+
+
+
