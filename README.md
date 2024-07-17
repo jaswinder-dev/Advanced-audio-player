@@ -28,7 +28,7 @@
   <li><b>Clone the repository:</b>
     <pre>
       <code>
-        git clone https://github.com/jaswinder-dev/Advanced audio player.git
+        git clone https://github.com/jaswinder-dev/Advanced-audio-player.git
         cd Audio-Player
       </code>
     </pre>
