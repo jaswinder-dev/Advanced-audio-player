@@ -1,0 +1,8 @@
+src/assets
+src/js/copyShader.js
+src/js/effectComposer.js
+src/js/gui.js
+src/js/LuminosityHighPassShader.js
+src/js/renderPass.js
+src/js/shaderPass.js
+src/js/unrealBloomPass.js

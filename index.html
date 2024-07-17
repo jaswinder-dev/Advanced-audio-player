@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+
+    <!-- Bootstrap 5  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body class="d-flex justify-content-center align-items-center" id="peace">
+
+    <!-- content will be added dynamically -->
+    <audio src="" id="audio"></audio>
+
+    <div class="wrapper position-relative overflow-hidden">
+
+        <article class="position-absolute p-4" id="settings">
+
+            <!-- close button -->
+            <div class="articleCloseBtn d-flex justify-content-end align-items-center">
+                <button type="button" id="closeSettingBtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- volume setting -->
+            <div class="setting py-2">
+                <div class="heading d-flex align-items-center">
+                    <h3 class="m-0 p-0">Volume</h3>
+                    <i class="fa-solid fa-volume-high mx-2"></i>
+                </div>
+                <div class="range position-relative d-flex justify-content-center align-items-center mt-3">
+                    <input type="range" min="0" max="100" value="100" id="volumeSlider">
+                    <div id="volumeSelector" class="selector position-absolute">
+                        <div class="selectBtn position-absolute"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- frequency setting -->
+            <div class="setting py-2 mt-3">
+                <div class="heading d-flex align-items-center">
+                    <h3 class="m-0 p-0">Frequency</h3>
+                    <i class="fa-solid fa-wave-square mx-2"></i>
+                </div>
+                <div class="range position-relative d-flex justify-content-center align-items-center mt-3">
+                    <input type="range" min="0" max="200" value="100" id="frequencySlider">
+                    <div id="frequencySelector" class="selector position-absolute">
+                        <div class="selectBtn position-absolute"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- theme setting -->
+            <div class="setting py-2 mt-3">
+                <div class="heading d-flex align-items-center">
+                    <h3 class="m-0 p-0">Theme</h3>
+                    <i class="fa-regular fa-image mx-2"></i>
+                </div>
+                <div class="themes d-flex align-items-center mt-3">
+                    <div class="theme peace"></div>
+                    <div class="theme cold"></div>
+                    <div class="theme hot"></div>
+                </div>
+            </div>
+
+        </article>
+
+        <main class="position-absolute py-5 px-4 d-flex flex-column justify-content-between align-items-center">
+
+            <div class="w-100 heading">
+                <h1 class="text-center m-0 p-0">Now Playing</h1>
+                <!-- <i class="fa-regular fa-heart"></i> -->
+            </div>
+
+            <div class="visulatiser" id="visualiser"></div>
+
+            <div class="description w-100 text-center">
+                <h2 class="m-0 p-0" id="audioName">Bilbo's last song.mp3</h2>
+                <h3 class="m-0 p-0" id="artistName">Bilbo baggins</h3>
+            </div>
+
+            <div class="progressArea w-100">
+                <div class="w-100 progressBar" id="progressBar">
+                    <div class="progressIndicator position-relative" id="progressIndicator"></div>
+                </div>
+                <div class="timers py-1 d-flex justify-content-between align-items-center">
+                    <div class="currentTime">
+                        <p class="m-0 p-0" id="currentTime">02:00</p>
+                    </div>
+                    <div class="totalTime">
+                        <p class="m-0 p-0" id="totalDuration">05:30</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls w-100 d-flex justify-content-between align-items-center py-3">
+                <button type="button" class="playMode d-flex justify-content-center align-items-center" id="modeBtn"
+                    title="Shuffle">
+                    <i class="fa-solid fa-shuffle"></i>
+                </button>
+                <button type="button" id="openSettingBtn">
+                    <i class="fa-solid fa-gear"></i>
+                </button>
+                <div class="mainControl d-flex justify-content-center align-items-center">
+                    <button type="button" class="prev" id="prevBtn">
+                        <i class="fa-solid fa-backward-fast"></i>
+                    </button>
+                    <button type="button"
+                        class="position-relative mx-3 playPause d-flex justify-content-center align-items-center"
+                        id="playPauseBtn">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                    <button type="button" class="next" id="nextBtn">
+                        <i class="fa-solid fa-forward-fast"></i>
+                    </button>
+                </div>
+                <button type="button" id="likeAudio">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+                <button type="button" class="listToggle d-flex justify-content-center align-items-center">
+                    <i class="fa-solid fa-music" id="listShow"></i>
+                </button>
+            </div>
+
+        </main>
+
+        <aside class="position-absolute py-5 px-4" id="playlist">
+
+            <div class="heading d-flex justify-content-between align-items-center">
+                <h1 class="m-0 p-0">Playlist</h1>
+                <button type="button" id="listHideBtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="list py-1 mt-3 overflow-auto">
+                <ul class="list-unstyled" id="audioList">
+                    <!-- content will be added dynamically -->
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Three.js -->
+    <script src="./src/js/three.js"></script>
+
+    <!-- orbit.js -->
+    <script src="./src/js/orbit.js"></script>
+
+    <!-- Custom script -->
+    <script src="./src/js/script.js" type="module"></script>
+
+</body>
+
+</html>

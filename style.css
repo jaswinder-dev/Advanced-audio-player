@@ -1,0 +1,349 @@
+:root {
+    --border-radius: 5px;
+    --white: #ffffff;
+    --dirtyWhite: #f1f1f1;
+    --darkwhite: #cecaca;
+    --lightbshadow: rgba(0, 0, 0, 0.15);
+    --heart-color: rgb(184, 0, 0);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--lightblack);
+    transition: all 0.3s ease;
+}
+
+*::-webkit-scrollbar {
+    width: 0;
+}
+
+button {
+    border: 0;
+    outline: none;
+    background-color: transparent;
+}
+
+p {
+    font-size: 0.8rem;
+}
+
+h2 {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.heading h1 {
+    font-size: 1.3rem;
+    color: var(--lightblack);
+    font-weight: 400;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
+}
+
+body#peace {
+    --pink: #ff74a4;
+    --violet: #9f6ea3;
+    --lightblack: #515C6F;
+    --pinkshadow: #ffcbdd;
+}
+
+body#cold {
+    --pink: #849aff;
+    --violet: #253d8f;
+    --lightblack: #515C6F;
+    --pinkshadow: #cbd0ff;
+}
+
+body#hot {
+    --pink: #ff9b19;
+    --violet: #ffba6b;
+    --lightblack: #D63330;
+    --pinkshadow: #ffdf76;
+}
+
+.wrapper {
+    aspect-ratio: 9/16;
+    height: calc(100% - 15px);
+    border-radius: var(--border-radius);
+    box-shadow: 0px 6px 15px var(--lightbshadow);
+    background-color: var(--white);
+}
+
+/*settings section **************************************************/
+article {
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    z-index: 30;
+}
+
+article .articleCloseBtn button {
+    cursor: pointer;
+}
+
+article .articleCloseBtn button i {
+    font-size: 1.2rem;
+}
+
+article .range {
+    background-color: var(--dirtyWhite);
+    border-radius: 5px;
+}
+
+article #volumeSlider,
+article #frequencySlider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    outline: none;
+    border-radius: 3px;
+    background-color: transparent;
+    z-index: 2;
+}
+
+article #volumeSlider::-webkit-slider-thumb,
+article #frequencySlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    aspect-ratio: 1;
+    cursor: pointer;
+    z-index: 10;
+}
+
+article .range .selector {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background-color: var(--pink);
+    border-radius: inherit;
+    z-index: 1;
+}
+
+#volumeSelector.selector {
+    width: 100%;
+}
+
+article .range .selector::before {
+    content: "";
+    width: 15px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: inherit;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+article .themes .theme {
+    width: 30px;
+    aspect-ratio: 1;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--dirtyWhite);
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+article .themes .theme:first-child {
+    background: linear-gradient(#ff74a4 0%, #9f6ea3 100%);
+}
+
+article .themes .theme:nth-child(2) {
+    background: linear-gradient(#849aff 0%, #253d8f 100%);
+}
+
+article .themes .theme:last-child {
+    background: linear-gradient(#ff9b19 0%, #ffba6b 100%);
+    margin-right: 0;
+}
+
+/*main section **************************************************/
+main {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+
+main #visualiser {
+    width: min(280px, 90%);
+    aspect-ratio: 1;
+}
+
+main .progressBar {
+    background: var(--dirtyWhite);
+    height: 3px;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+main .progressBar .progressIndicator {
+    height: 100%;
+    width: 0;
+    background-image: linear-gradient(90deg, var(--pink) 0%, var(--violet) 100%);
+    border-radius: inherit;
+}
+
+main .progressBar .progressIndicator::before {
+    --height: 14px;
+    content: "";
+    height: var(--height);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--violet);
+    box-shadow: 0px 0px 20px var(--violet), 0px 0px 60px var(--violet);
+    position: absolute;
+    top: 50%;
+    right: calc(var(--height)/-2);
+    transform: translate(0, -50%);
+    z-index: 15;
+    display: none;
+}
+
+main .progressBar:hover>.progressIndicator::before {
+    display: block;
+}
+
+main .controls i {
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+main .controls .fa-solid.fa-heart {
+    color: var(--heart-color);
+}
+
+main .controls .mainControl i {
+    color: var(--white);
+}
+
+main .controls .mainControl .playPause {
+    height: 50px;
+    aspect-ratio: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    background: linear-gradient(var(--white) 0%, var(--darkwhite) 100%);
+    box-shadow: 0px 0px 5px var(--pink);
+}
+
+main .controls .mainControl .playPause::before {
+    position: absolute;
+    content: "";
+    height: 90%;
+    aspect-ratio: 1;
+    border-radius: inherit;
+    background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
+}
+
+main .controls .mainControl .playPause i {
+    font-size: 1.2rem;
+    color: var(--white);
+    z-index: 10;
+}
+
+main .controls .mainControl .prev,
+main .controls .mainControl .next {
+    background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
+    box-shadow: 0 0 10px 5px var(--lightbshadow);
+    backdrop-filter: blur(20px);
+    border-radius: 50%;
+    width: 30px;
+    aspect-ratio: 1;
+}
+
+/*playlist section **************************************************/
+aside {
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: var(--white);
+    z-index: 30;
+}
+
+aside .list {
+    max-height: 90%;
+}
+
+aside li {
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+aside li:hover {
+    background-color: var(--pinkshadow);
+}
+
+aside .listAudioName {
+    font-size: 1rem;
+}
+
+aside li .fa-heart {
+    color: var(--heart-color);
+}
+
+aside .playAnimation {
+    height: 20px;
+    aspect-ratio: 1;
+}
+
+aside .playAnimation .bar {
+    width: 20%;
+    height: 0;
+    background-color: var(--pinkshadow);
+    border-radius: 2px 2px 0 0;
+    height: 50%;
+    animation: dance 1.5s ease infinite alternate;
+    animation-play-state: paused;
+}
+
+aside .playAnimation .bar:nth-child(2) {
+    height: 30%;
+    animation-delay: 0.2s;
+}
+
+aside .playAnimation .bar:last-child {
+    height: 70%;
+    animation-delay: 0.4s;
+}
+
+@keyframes dance {
+    10% {
+        height: 10%;
+    }
+
+    30% {
+        height: 50%;
+    }
+
+    70% {
+        height: 20%;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .wrapper {
+        height: 100%;
+        border-radius: 0;
+    }
+}
